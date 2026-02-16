@@ -5,6 +5,7 @@ def main():
     try:
         # Reading two numbers from standard input
         line1 = sys.stdin.readline().strip()
+        
         line2 = sys.stdin.readline().strip()
         
         if not line1 or not line2:
