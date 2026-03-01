@@ -25,7 +25,7 @@ def main():
             print(f"{result:g}")
 
     except ValueError:
-        print("Помилка: введіть коректні числа")
+        print("Помилка: введіть коректні числа!")
 
 if __name__ == "__main__":
     main()
