@@ -20,3 +20,16 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+with open('input.txt', 'r', encoding='utf-8') as file:
+    numbers = [float(x) for x in file.read().split()]
+if len(numbers) > 0:
+    # Рахуємо середнє арифметичне
+    average = sum(numbers) / len(numbers)
+    result = f"Середнє значення: {average:.2f}"
+    
+    print(result) 
+    
+    with open('output.txt', 'w', encoding='utf-8') as file:
+        file.write(result)
+else:
+    print("Файл порожній.")
