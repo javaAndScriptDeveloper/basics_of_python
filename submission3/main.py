@@ -19,3 +19,6 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+# Цей рядок виводить довжину списку numbers
+print("Довжина словника people:", len(people))
