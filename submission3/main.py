@@ -19,3 +19,14 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+print("Початковий список:", numbers)
+
+# Перевіряємо, чи є значення у списку
+if value_to_remove in numbers:
+    # Видаляємо елемент
+    numbers.remove(value_to_remove)
+    print(f"Елемент {value_to_remove} успішно видалено.")
+else:
+    print(f"Помилка: елемента {value_to_remove} немає у списку.")
+
+print("Оновлений список:", numbers)
