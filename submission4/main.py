@@ -1,14 +1,18 @@
 # Реалізуйте функцію для вашого варіанту та викличте її для тестових значень
 # Виведіть результат кожного виклику за допомогою print()
-#
-# Тестові значення:
-# 1) Периметр прямокутника: (5, 3), (10, 7), (2.5, 4)
-# 2) Факторіал: 5, 8
-# 3) Цельсій → Фаренгейт: 0, 100, 37
-# 4) Кілометри → метри: 1, 5.5, 0.25
-# 5) Години → хвилини: 2, 5.5, 0.25
-# 6) Середнє арифметичне: [15, 25, 35], [100, 200, 300]
-# 7) Площа квадрата: 5, 12, 7
-# 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
-# 9) Дюйми → сантиметри: 1, 10, 5
+import re
+
+
+
+def golosniliteri(ryadok):
+    if type(ryadok) is not str:
+        print("Your ryadok is not a string type")
+        return -1
+
+    l = re.findall(r"[aeiou]+?", str(ryadok).lower())
+    return len(l)
+
+print(golosniliteri("hello world"))
+print(golosniliteri("education"))
+print(golosniliteri("beautiful day"))
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
