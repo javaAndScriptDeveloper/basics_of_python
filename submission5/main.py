@@ -1,22 +1,22 @@
-# Дані для завдання
+# Загальне завдання
+# Написати програму, яка зчитує дані з текстового файлу та записує їх у новий
+# файл, виконуючи певні перетворення (наприклад, переведення всіх літер у
+# нижній регістр).
+# Індивідуальні завдання
+# 9) Видалити всі порожні рядки з файлу.
 
-# Шлях до вхідного файлу
-input_file = "input.txt"
+import os
+import sys
 
-# Шлях до вихідного файлу
-output_file = "output.txt"
+INPUT_PATH = "input.txt"
+OUTPUT_PATH = "output.txt"
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+if not os.path.exists(INPUT_PATH):
+    print("The file does not exist:", INPUT_PATH)
+    sys.exit(1)
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
-
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
-
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
-
-# Реалізуйте завдання тут
+output = open(OUTPUT_PATH, "w", encoding="utf-8")
+with open(INPUT_PATH, "r", encoding="utf-8") as f:
+    content = f.readlines()
+    output.writelines([line for line in content if line.strip() != ""])
+output.close()
