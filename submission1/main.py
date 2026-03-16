@@ -11,3 +11,5 @@ average = (num1 + num2 + num3) / 3
 
 # Виведення результату
 print(average)
+
+# retry quiz
