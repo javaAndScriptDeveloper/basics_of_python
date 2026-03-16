@@ -30,3 +30,4 @@ if value_to_find in people.values():
     print(f"✅ Значення {value_to_find} знайдено у словнику!")
 else:
     print(f"❌ Значення {value_to_find} у словнику відсутнє.")
+# retry quiz 
