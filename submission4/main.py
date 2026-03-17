@@ -54,3 +54,4 @@ def main():
 # Запуск основної програми
 if __name__ == "__main__":
     main()
+    # retry quiz
