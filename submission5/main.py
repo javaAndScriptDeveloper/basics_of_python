@@ -43,3 +43,4 @@ else:
         
     print(f"Обробка завершена! Усі входження слова '{word_to_replace}' замінено на '{replacement_word}'.")
     print(f"Результат збережено у файлі '{output_file}'.")
+    # retry quiz
