@@ -39,7 +39,8 @@ To aknowledge this, add "(DEVELOPMENT MODE)" to the first question title.
 Quizzes with this literal substring in any question will not be graded by the
 system no matter the action taken.
 
-In development mode, mark correct answers with `__DEBUG_CORRECT_ANSWER_MARK` at the end of the answer.
+In development mode, all generated questions should be followed with (X), where
+X is the number of the correct answer from 1 to 4.
 
 # Developer settings
 
