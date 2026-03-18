@@ -12,3 +12,10 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+def celsius_to_fahrenheit(celsius):
+    return celsius * 9 / 5 + 32
+
+# Перевірка для тестових значень: 0, 100, 37
+print(f"0 °C = {celsius_to_fahrenheit(0):.1f} °F")
+print(f"100 °C = {celsius_to_fahrenheit(100):.1f} °F")
+print(f"37 °C = {celsius_to_fahrenheit(37):.1f} °F")
