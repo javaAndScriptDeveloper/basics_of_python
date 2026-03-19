@@ -1,18 +1,13 @@
 def find_max(a, b, c):
- 
-    result = max(a, b, c)
-    return result
+    return max(a, b, c)
 
 def main():
-    try:
-        num1 = float(input())
-        num2 = float(input())
-        num3 = float(input())
-        
-        max_value = find_max(num1, num2, num3)
-        print(max_value) # Роботи люблять, коли виводиться ТІЛЬКИ число
-    except ValueError:
-        print("Помилка")
+
+    a, b, c = 17, 10, 42
+    
+    maximum = find_max(a, b, c)
+    
+    print(f"Числа: {a}, {b}, {c}. Максимум: {maximum}")
 
 if __name__ == "__main__":
     main()
