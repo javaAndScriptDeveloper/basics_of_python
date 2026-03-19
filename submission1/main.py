@@ -1,4 +1,3 @@
-# Считываем данные
 try:
     a = float(input())
     b = float(input())
