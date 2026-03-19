@@ -12,3 +12,19 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def funk(duym:float):
+    
+    return duym*2.54;
+
+
+
+def main():
+    print(funk(1))
+    print(funk(10))
+    print(funk(5))
+
+            
+  
+if __name__ == "__main__":
+    main()
