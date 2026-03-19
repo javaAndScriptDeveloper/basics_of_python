@@ -1,4 +1,4 @@
-def find_max_of_three(a, b, c):
+def find_max(a, b, c):
  
     result = max(a, b, c)
     return result
@@ -11,7 +11,7 @@ def main():
         num2 = float(input("Введіть друге число: "))
         num3 = float(input("Введіть третє число: "))
         
-        max_value = find_max_of_three(num1, num2, num3)
+        max_value = find_max(num1, num2, num3)
         
         print(f"Найбільше число - {max_value}")
     except ValueError:
