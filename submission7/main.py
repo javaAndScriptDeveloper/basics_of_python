@@ -1,14 +1,8 @@
-# Дані для завдання
-
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
-
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
-
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
-
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
-
-# Реалізуйте завдання тут
+try:
+    user_input = input() 
+    if not user_input:
+        raise ValueError("Помилка! Список порожній")
+        
+    print(user_input)
+except ValueError as err: 
+    print(err)
