@@ -1,33 +1,35 @@
-# Дані для завдання
 import json
+import os
 
-# Шляхи до файлів
+# Шляхи до файлів (вже задані в шаблоні)
 input_json = "students.json"
-output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
-
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
-
-# Ім'я для пошуку (варіант 3)
 search_name = "Марія"
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+# 1. Перевіряємо, чи існує файл
+if not os.path.exists(input_json):
+    print(f"Помилка: Файл {input_json} не знайдено")
+else:
+    try:
+        # 2. Відкриваємо та зчитуємо JSON
+        with open(input_json, 'r', encoding='utf-8') as f:
+            students = json.load(f)
+        
+        # 3. Шукаємо студента за ім'ям
+        # Припускаємо, що students — це список словників
+        found_student = None
+        for student in students:
+            if student.get("name") == search_name:
+                found_student = student
+                break
+        
+        # 4. Виводимо результат
+        if found_student:
+            # Використовуємо json.dumps для гарного виводу в консоль
+            print(json.dumps(found_student, ensure_ascii=False, indent=2))
+        else:
+            print(f"Студента з ім'ям {search_name} не знайдено")
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
-
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
-
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
-
-# Реалізуйте завдання тут
+    except json.JSONDecodeError:
+        print("Помилка: Некоректний формат JSON-файлу")
+    except Exception as e:
+        print(f"Виникла помилка: {e}")
