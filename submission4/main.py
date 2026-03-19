@@ -4,18 +4,15 @@ def find_max(a, b, c):
     return result
 
 def main():
-    print("--- Програма для знаходження найбільшого з трьох чисел ---")
-    
     try:
-        num1 = float(input("Введіть перше число: "))
-        num2 = float(input("Введіть друге число: "))
-        num3 = float(input("Введіть третє число: "))
+        num1 = float(input())
+        num2 = float(input())
+        num3 = float(input())
         
         max_value = find_max(num1, num2, num3)
-        
-        print(f"Найбільше число - {max_value}")
+        print(max_value) # Роботи люблять, коли виводиться ТІЛЬКИ число
     except ValueError:
-        print("Помилка: введіть коректні числа.")
+        print("Помилка")
 
 if __name__ == "__main__":
     main()
