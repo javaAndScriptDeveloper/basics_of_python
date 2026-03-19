@@ -1,1 +1,12 @@
-# Implement task here
+print("--- Індивідуальне завдання (Варіант 9) ---")
+
+year = int(input("Введіть рік для перевірки: "))
+
+if year % 400 == 0:
+    print("Високосний")
+elif year % 100 == 0:
+    print("Не високосний")
+elif year % 4 == 0:
+    print("Високосний")
+else:
+    print("Не високосний")
