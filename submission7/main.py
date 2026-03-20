@@ -1,14 +1,9 @@
-# Дані для завдання
+from datetime import datetime
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
+date_str = input()
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
-
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
-
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
-
-# Реалізуйте завдання тут
+try:
+    date_obj = datetime.strptime(date_str, "%d-%m-%Y")
+    print(date_obj.strftime("%d.%m.%Y"))
+except ValueError:
+    print("Некоректна дата")
