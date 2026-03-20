@@ -1,33 +1,18 @@
-# Дані для завдання
 import json
 
-# Шляхи до файлів
-input_json = "students.json"
-output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
+with open("students.json", encoding="utf-8") as f:
+    s1 = json.load(f)
 
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
+with open("students2.json", encoding="utf-8") as f:
+    s2 = json.load(f)
 
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
+d1 = {s["name"]: s for s in s1}
+d2 = {s["name"]: s for s in s2}
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+names = set(d1) | set(d2)
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
-
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
-
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
-
-# Реалізуйте завдання тут
+for name in names:
+    if name not in d1 or name not in d2:
+        print(name)
+    elif d1[name] != d2[name]:
+        print(name)

@@ -1,0 +1,7 @@
+[
+ {"name": "Олена", "age": 20, "faculty": "КН"},
+ {"name": "Іван", "age": 22, "faculty": "ІТ"},
+ {"name": "Марія", "age": 19, "faculty": "КН"},
+ {"name": "Петро", "age": 21, "faculty": "ФМ"},
+ {"name": "Анна", "age": 23, "faculty": "ІТ"}
+]
