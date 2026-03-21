@@ -1,22 +1,34 @@
-# Дані для завдання
-
 # Шлях до вхідного файлу
 input_file = "input.txt"
 
 # Шлях до вихідного файлу
 output_file = "output.txt"
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+# РЗчитування чисел з вхідного файлу 
+# та запис їх середнього у вихідний файл
+import os
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
+if os.path.exists(input_file):
+    mean_value = None
 
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
+    with open(input_file, 'r', encoding='utf-8') as infile:
+        numbers = infile.read()
+        numbers = numbers.split()
 
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
+        num_sum = 0
+        for num in numbers:
+            num = int(num)
+            num_sum += num
 
-# Реалізуйте завдання тут
+            if numbers:
+                mean_value = num_sum / len(numbers)
+            else:
+                print('Файл порожній')
+
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        if mean_value != None:
+            outfile.write(str(mean_value))
+        else:
+            outfile.write()
+else:
+    print('Файлу з такою назвою не існує')
