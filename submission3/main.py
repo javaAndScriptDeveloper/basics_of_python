@@ -19,3 +19,4 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+print(*sorted(numbers))
