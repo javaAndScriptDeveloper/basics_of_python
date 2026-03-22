@@ -12,3 +12,9 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+def square(x):
+    s = x*x
+    print(s)
+square(5)
+square(12)
+square(7)
