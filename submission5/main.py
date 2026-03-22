@@ -20,3 +20,5 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+with open(input_file, "a", encoding="utf-8") as f:
+    f.write(new_line + "\n")
