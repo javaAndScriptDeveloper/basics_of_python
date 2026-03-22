@@ -31,3 +31,15 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+with open(input_json, encoding="utf-8") as f:
+    students = json.load(f)
+
+# обчислюємо середній вік
+total_age = sum(student["age"] for student in students)
+average_age = total_age / len(students)
+
+# записуємо в JSON
+result = {"average_age": average_age}
+
+with open(output_json, "w", encoding="utf-8") as f:
+    json.dump(result, f, ensure_ascii=False, indent=2)
