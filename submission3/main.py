@@ -1,8 +1,8 @@
-num = [4, 2, 7, 2, 9, 4, 1, 7, 3]
+num = [4, 2, 7, 2, 9, 4, 1, 7, 3]#список повторюваних значень
 
-a = int(input("Enter a number: "))
+a = int(input("Enter a number: "))#запитуєм число для видалення
 
-while a in num:
-    num.remove(a)
+while a in num:#цикл для видалення всіх входжень числа в список
+    num.remove(a)#метод для видалення першого входження числа в список
 
-print(num)
+print(num)#вивід
