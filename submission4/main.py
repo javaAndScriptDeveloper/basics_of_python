@@ -12,3 +12,11 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+list1 = [3, 17, 5]
+list2 = [10, 2, 8]
+list3 = [42, 15, 38]
+
+def maxIn3(list1, list2, list3):
+    print(max(list1), max(list2), max(list3))
+
+maxIn3(list1, list2, list3)
