@@ -20,3 +20,8 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+with open(input_file, 'r') as f:
+    nums = sorted(f.read().split(), key=int)
+
+with open(output_file, 'w') as f:
+    f.write('\n'.join(nums))
