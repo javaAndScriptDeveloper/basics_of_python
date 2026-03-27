@@ -1,1 +1,8 @@
-# Implement task here
+n = int(input("Введіть число: "))
+
+factorial = 1
+
+for i in range(1, n + 1):
+    factorial *= i
+
+print("Факторіал =", factorial)
