@@ -20,3 +20,18 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+input_file = "input.txt"
+output_file = "output.txt"
+word_to_find = "Python"
+word_to_replace = "World"
+replacement_word = "Ukraine"
+new_line = "Новий рядок додано"
+new_content = "Файл перезаписано"
+
+with open(input_file, "r", encoding="utf-8") as f:
+    text = f.read()
+
+word_count = len(text.split())
+
+with open(output_file, "w", encoding="utf-8") as f:
+    f.write(str(word_count))
