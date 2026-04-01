@@ -19,3 +19,32 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+# 1. Видалення всіх повторюваних елементів зі списку
+unique_numbers = list(set(numbers_with_duplicates))
+
+# 2. Видалення заданого значення зі списку numbers
+if value_to_remove in numbers:
+    numbers.remove(value_to_remove)
+
+# 3. Використання другого списку (наприклад, об'єднання з першим)
+combined_numbers = numbers + numbers2
+
+# 4. Пошук у словнику імені людини за її віком
+found_people = [name for name, age in people.items() if age == value_to_find]
+
+print("--- Результати обчислень ---\n")
+
+print("1. Видалення дублікатів:")
+print(f"Оригінальний список: {numbers_with_duplicates}")
+print(f"Очищений список:     {unique_numbers}\n")
+
+print("2. Робота з основними списками:")
+print(f"Список 'numbers' після видалення числа {value_to_remove}: {numbers}")
+print(f"Об'єднаний список (numbers + numbers2):       {combined_numbers}\n")
+
+print("3. Пошук у словнику:")
+if found_people:
+    print(f"Людина(и) з віком {value_to_find} років: {', '.join(found_people)}")
+else:
+    print(f"Людей з віком {value_to_find} років не знайдено.")
