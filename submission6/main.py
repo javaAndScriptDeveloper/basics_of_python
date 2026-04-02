@@ -31,3 +31,11 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+# Зчитування даних з JSON
+with open(input_json, "r", encoding="utf-8") as f:
+    students = json.load(f)
+
+# Виведення інформації про студентів
+print("Список студентів:")
+for student in students:
+    print(f"Ім'я: {student['name']}, Вік: {student['age']}, Факультет: {student['faculty']}")
