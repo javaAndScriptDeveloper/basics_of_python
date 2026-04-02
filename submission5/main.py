@@ -20,3 +20,15 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+# Зчитування з файлу і запис у новий (у нижньому регістрі)
+with open(input_file, "r", encoding="utf-8") as f:
+    data = f.read()
+
+# Перетворення тексту
+data_lower = data.lower()
+
+# Запис у новий файл
+with open(output_file, "w", encoding="utf-8") as f:
+    f.write(data_lower)
+
+print("Дані успішно зчитано та записано у новий файл.")
