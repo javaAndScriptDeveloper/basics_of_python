@@ -12,3 +12,11 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+def perimeter_rectangle(length, width):
+    return 2 * (length + width)
+
+test_values = [(5, 3), (10, 7), (2.5, 4)]
+
+for length, width in test_values:
+    result = perimeter_rectangle(length, width)
+    print(f"Периметр прямокутника ({length}, {width}) = {result}")
