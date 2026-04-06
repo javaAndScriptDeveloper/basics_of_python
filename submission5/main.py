@@ -1,22 +1,29 @@
-# Дані для завдання
+import os
 
-# Шлях до вхідного файлу
+#Вхідні дані
 input_file = "input.txt"
-
-# Шлях до вихідного файлу
 output_file = "output.txt"
-
-# Слово для пошуку (варіант 5)
 word_to_find = "Python"
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
+#Перевірка існування файлу
+if not os.path.exists(input_file):
+    print("Файл не існує!")
+else:
+    # Зчитування даних
+    with open(input_file, "r", encoding="utf-8") as file:
+        text = file.read()
 
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
+    #Перетворення у нижній регістр
+    text_lower = text.lower()
 
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
+    #Запис у новий файл
+    with open(output_file, "w", encoding="utf-8") as file:
+        file.write(text_lower)
 
-# Реалізуйте завдання тут
+    print("Дані записано у новий файл.")
+
+    #Перевірка наявності слова
+    if word_to_find.lower() in text_lower:
+        print(f"Слово '{word_to_find}' знайдено у файлі.")
+    else:
+        print(f"Слово '{word_to_find}' не знайдено у файлі.")
