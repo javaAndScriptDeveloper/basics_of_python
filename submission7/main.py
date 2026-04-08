@@ -12,3 +12,8 @@ input_file = "input.txt"
 # Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
 
 # Реалізуйте завдання тут
+try:
+    value = int(input())
+    print(value)
+except ValueError:
+    print("Помилка: введене значення не є цілим числом")
