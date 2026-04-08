@@ -27,7 +27,10 @@ courses = [
     {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
 ]
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
+with open(input_json, "r", encoding="utf-8") as f:
+    students = json.load(f)
 
-# Реалізуйте завдання тут
+students.append(new_student)
+
+with open(output_json, "w", encoding="utf-8") as f:
+    json.dump(students, f, ensure_ascii=False, indent=2)
