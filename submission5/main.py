@@ -1,22 +1,22 @@
-# Дані для завдання
+# Реалізуйте завдання тут
+import os
 
-# Шлях до вхідного файлу
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 input_file = "input.txt"
-
-# Шлях до вихідного файлу
 output_file = "output.txt"
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+try:
+    with open(input_file, 'r', encoding='utf-8') as infile:
+        data = infile.read()
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        outfile.write(data)
 
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
+    print(f"перемога! Дані скопійовано з {os.path.basename(input_file)} у {os.path.basename(output_file)}")
 
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
 
-# Реалізуйте завдання тут
+except FileNotFoundError:
+    print(f"Помилка: Файл {input_file} не знайдено.")
+except Exception as e:
+    print(f"Сталася непередбачувана помилка: {e}")
