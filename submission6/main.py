@@ -1,33 +1,44 @@
-# Дані для завдання
 import json
+import pandas as pd
+import os
 
-# Шляхи до файлів
-input_json = "students.json"
-output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
+# 1. Робота з JSON
+if os.path.exists('students.json'):
+    with open('students.json', 'r', encoding='utf=8') as f:
+        data_json = json.load(f)
 
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
+    data_json.append({"name": "Тестовий Студент", "age": 20, "faculty": "ІТ" })
 
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
+    with open('updated_students.json', 'w', encoding='utf=8') as f:
+        json.dump(data_json, f, ensure_ascii=False, indent=4)
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+# 2. Робота з CSV
+df_csv = (pd.DataFrame({
+    'Продукт': ['Яблуко', 'Банан'],
+    'Ціна': [30, 50]
+}))
+df_csv.to_csv('products.csv', index=False)
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
+df_csv.loc[len(df_csv)] = ['Груша', 45]
+df_csv.to_csv('updated_products.csv', index=False)
 
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
+# 3. Робота з Excel
+df_staff = pd.DataFrame({
+    'Ім’я': ['Аня', 'Ігор', 'Катя'],
+    'Зарплата': [15000, 28000, 12000]
+})
+df_staff.to_excel('staff.xlsx', index=False)
+df_excel = pd.read_excel('staff.xlsx')
+processed = df_excel[df_excel['Зарплата'] > 13000].sort_values(by='Зарплата')
+processed.to_excel('processed_staff.xlsx', index=False)
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
+#ІНДИВІДУАЛЬНЕ ЗАВДАННЯ
 
-# Реалізуйте завдання тут
+if os.path.exists('students.json'):
+    with open('students.json', 'r', encoding='utf-8') as f:
+        students = json.load(f)
+
+        for s in students:
+            print(f"{s['name']} (Вік: {s['age']}, Факультет: {s['faculty']})")
+else:
+    print("Файл students.json не знайдено ")
