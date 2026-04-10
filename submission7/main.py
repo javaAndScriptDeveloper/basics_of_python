@@ -1,14 +1,53 @@
-# Дані для завдання
+import logging
+import sys
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
+# Налаштування логування
+logging.basicConfig(
+    filename='error.log',
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    encoding='utf-8'
+)
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
+def main():
+    try:
 
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
+        val1 = input("Введіть перше число: ")
+        val2 = input("Введіть друге число: ")
 
-# Реалізуйте завдання тут
+        # Перевірка на порожні значення
+        if not val1 or not val2:
+            return
+
+        num1 = float(val1)
+        num2 = float(val2)
+
+        # Виконання операції
+        result = num1 / num2
+
+        # Виведення результату
+        if result == int(result):
+            print(int(result))
+        else:
+            print(result)
+
+    except ZeroDivisionError as e:
+        error_message = "Помилка: ділення на нуль!"
+        print(error_message)
+        logging.error(f"{error_message} Деталі: {e}")
+
+    except ValueError as e:
+        error_message = "Помилка: введено не число!"
+        print(error_message)
+        logging.error(f"{error_message} Деталі: {e}")
+
+    except Exception as e:
+
+        error_message = f"Виникла непередбачена помилка: {e}"
+        print(error_message)
+        logging.error(error_message)
+
+
+if __name__ == "__main__":
+    main()
