@@ -19,3 +19,19 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+## Об'єднуємо два списки
+merged_list = []
+
+## Додаємо елементи першого списку
+for num in numbers:
+    merged_list.append(num)
+
+## Додаємо елементи другого списку
+for num in numbers2:
+    merged_list.append(num)
+
+## Виводимо результат
+print("Перший список:", numbers)
+print("Другий список:", numbers2)
+print("Результат об'єднання списків:", merged_list)
