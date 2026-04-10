@@ -1,14 +1,40 @@
-# Дані для завдання
+import logging
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
+logging.basicConfig(
+    filename='error.log',
+    level=logging.ERROR,
+    format='%(asctime)s - %(message)s',
+    encoding='utf-8'
+)
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
 
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
+def main():
+    try:
 
-# Реалізуйте завдання тут
+        line1 = input()
+        line2 = input()
+
+        num1 = float(line1.strip())
+        num2 = float(line2.strip())
+
+        result = num1 / num2
+
+
+        if result == int(result):
+            print(int(result))
+        else:
+            print(result)
+
+    except ZeroDivisionError:
+
+        msg = "Помилка: ділення на нуль"
+        print(msg)
+        logging.error(msg)
+    except Exception:
+
+        print("Помилка")
+
+
+if __name__ == "__main__":
+    main()
