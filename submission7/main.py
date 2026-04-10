@@ -1,52 +1,41 @@
 import logging
 import sys
 
-# Налаштування логування
 logging.basicConfig(
     filename='error.log',
     level=logging.ERROR,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(message)s',
     encoding='utf-8'
 )
 
 
 def main():
     try:
-
-        val1 = input("Введіть перше число: ")
-        val2 = input("Введіть друге число: ")
-
-        # Перевірка на порожні значення
-        if not val1 or not val2:
+        # Читаємо дані прямо з потоку 
+        lines = sys.stdin.readlines()
+        if len(lines) < 2:
             return
 
-        num1 = float(val1)
-        num2 = float(val2)
+        num1 = float(lines[0].strip())
+        num2 = float(lines[1].strip())
 
-        # Виконання операції
         result = num1 / num2
 
-        # Виведення результату
+        # Виводимо тільки число
         if result == int(result):
             print(int(result))
         else:
             print(result)
 
-    except ZeroDivisionError as e:
-        error_message = "Помилка: ділення на нуль!"
-        print(error_message)
-        logging.error(f"{error_message} Деталі: {e}")
+    except ZeroDivisionError:
 
-    except ValueError as e:
-        error_message = "Помилка: введено не число!"
-        print(error_message)
-        logging.error(f"{error_message} Деталі: {e}")
-
+        msg = "Помилка: ділення на нуль"
+        print(msg)
+        logging.error(msg)
+    except ValueError:
+        print("Помилка: ValueError")
     except Exception as e:
-
-        error_message = f"Виникла непередбачена помилка: {e}"
-        print(error_message)
-        logging.error(error_message)
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
