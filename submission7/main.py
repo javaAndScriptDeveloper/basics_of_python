@@ -1,5 +1,5 @@
 import logging
-import sys
+
 
 logging.basicConfig(
     filename='error.log',
@@ -11,17 +11,16 @@ logging.basicConfig(
 
 def main():
     try:
-        # Читаємо дані прямо з потоку 
-        lines = sys.stdin.readlines()
-        if len(lines) < 2:
-            return
 
-        num1 = float(lines[0].strip())
-        num2 = float(lines[1].strip())
+        line1 = input()
+        line2 = input()
+
+        num1 = float(line1.strip())
+        num2 = float(line2.strip())
 
         result = num1 / num2
 
-        # Виводимо тільки число
+
         if result == int(result):
             print(int(result))
         else:
@@ -32,10 +31,9 @@ def main():
         msg = "Помилка: ділення на нуль"
         print(msg)
         logging.error(msg)
-    except ValueError:
-        print("Помилка: ValueError")
-    except Exception as e:
-        print(f"Error: {e}")
+    except Exception:
+
+        print("Помилка")
 
 
 if __name__ == "__main__":
