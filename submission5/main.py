@@ -1,22 +1,31 @@
-# Дані для завдання
+import sys
 
-# Шлях до вхідного файлу
-input_file = "input.txt"
 
-# Шлях до вихідного файлу
-output_file = "output.txt"
+def main():
+    input_filename = 'input.txt'
+    output_filename = 'output.txt'
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+    try:
+        with open(input_filename, 'r') as f:
+            data = f.read().split()
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
+        numbers = [int(x) for x in data]
 
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
+        numbers.sort()
 
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
+        with open(output_filename, 'w') as f:
+            f.write(" ".join(map(str, numbers)))
 
-# Реалізуйте завдання тут
+        print(" ".join(map(str, numbers)))
+
+    except FileNotFoundError:
+        input_data = sys.stdin.read().split()
+        if input_data:
+            numbers = sorted([int(x) for x in input_data])
+            print(" ".join(map(str, numbers)))
+    except Exception as e:
+        pass
+
+
+if __name__ == "__main__":
+    main()
