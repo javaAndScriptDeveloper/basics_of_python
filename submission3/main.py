@@ -19,3 +19,7 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+list1 = numbers
+list2 = numbers2
+combined_list = list1 + list2
+print(combined_list)
