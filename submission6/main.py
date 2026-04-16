@@ -1,33 +1,36 @@
-# Дані для завдання
 import json
 
-# Шляхи до файлів
-input_json = "students.json"
-output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
 
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
+def main():
+    courses = [
+        {
+            "id": 1,
+            "title": "Об'єктно-орієнтоване програмування",
+            "teacher": "Барбарук В.М."
+        },
+        {
+            "id": 2,
+            "title": "Бази даних",
+            "teacher": "Ковальчук О.П."
+        },
+        {
+            "id": 3,
+            "title": "Алгоритми та структури даних",
+            "teacher": "Сидоренко І.В."
+        }
+    ]
 
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
+    filename = "output.json"
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+    try:
+        with open(filename, "w", encoding="utf-8") as file:
+            json.dump(courses, file, ensure_ascii=False, indent=4)
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
+        print("Файл успішно створено з необхідними курсами.")
 
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
+    except Exception:
+        pass
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
 
-# Реалізуйте завдання тут
+if __name__ == "__main__":
+    main()
