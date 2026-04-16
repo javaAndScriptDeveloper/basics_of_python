@@ -31,3 +31,49 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+
+# Шляхи до файлів (згідно з даними для завдання та bash-скриптом варіанту 10)
+input_json = "students.json"
+input_json2 = "students2.json"
+
+def compare_json_files(file1, file2):
+    # Зчитування даних з першого файлу
+    try:
+        with open(file1, 'r', encoding='utf-8') as f:
+            data1 = json.load(f)
+    except FileNotFoundError:
+        print(f"Помилка: файл {file1} не знайдено.")
+        return
+
+    # Зчитування даних з другого файлу
+    try:
+        with open(file2, 'r', encoding='utf-8') as f:
+            data2 = json.load(f)
+    except FileNotFoundError:
+        print(f"Помилка: файл {file2} не знайдено.")
+        return
+
+    # Перетворюємо списки словників у словники словників для зручного порівняння.
+    # В якості ключа використовуємо 'name', оскільки це унікальний ідентифікатор студента.
+    dict1 = {student['name']: student for student in data1}
+    dict2 = {student['name']: student for student in data2}
+
+    print("=== Результати порівняння файлів ===")
+    
+    # 1. Шукаємо змінені або видалені записи (ті, що є в dict1)
+    for name, info1 in dict1.items():
+        if name not in dict2:
+            print(f"[-] Видалено студента: {name}")
+        elif info1 != dict2[name]:
+            print(f"[*] Змінено дані студента: {name}")
+            # Можна також вивести конкретні зміни, але для тесту достатньо імені
+            print(f"    Було:  {info1}")
+            print(f"    Стало: {dict2[name]}")
+
+    # 2. Шукаємо нові (додані) записи (ті, що є тільки в dict2)
+    for name, info2 in dict2.items():
+        if name not in dict1:
+            print(f"[+] Додано нового студента: {name}")
+
+if __name__ == "__main__":
+    compare_json_files(input_json, input_json2)
