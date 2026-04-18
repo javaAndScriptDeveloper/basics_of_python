@@ -1,24 +1,13 @@
 # Дані для завдання
-import json
+import json, csv, os
+import pandas as pd
 
 # Шляхи до файлів
 input_json = "students.json"
 output_json = "output.json"
 input_csv = "students.csv"
-input_json2 = "students2.json"
-
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
-
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
-
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
-
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
+output_csv = "output_csv.csv"
+output_excel = "result.xlsx"
 
 # Дані про курси (варіант 8)
 courses = [
@@ -31,3 +20,38 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+
+#Написати програму для створення JSON-файлу з інформацією про курси, які викладаються на факультеті.
+#Робота з JSON
+# Створення початкового файлу
+with open(input_json, 'w', encoding="utf-8") as f:
+    json.dump(courses, f, ensure_ascii=False, indent=2)
+print(f"Файл {input_json} створено")
+
+# Зчитування та модифікація JSON
+if os.path.exists(input_json):
+    with open(input_json, 'r', encoding="utf-8") as f:
+        data = json.load(f)
+
+    # Додаємо новий запис
+    data.append({"name": "Фізичні основи комп'ютерних систем", "faculty": "ФМФ", "credits": 5})
+
+    # Записуємо у новий файл
+    with open(output_json, 'w', encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"Дані JSON оброблено та збережено в {output_json}")
+
+#Робота з CSV
+
+
+
+
+
+
+
+
+
+
+
+
+
