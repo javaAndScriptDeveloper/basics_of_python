@@ -19,3 +19,21 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+# Індивідуальне завдання: Реалізувати програму для перевірки, чи є два списки однаковими.
+
+#Функція порівнює два списки
+def equality_check(numbers_list, numbers_list2):
+    return numbers_list == numbers_list2
+
+#Функція приймає булеве значення (True/False) та виводить відповідне текстове повідомлення
+def check(result):
+    if result:
+        print("Списики однакові")
+    else:
+        print("Списки не однакові")
+
+# Викликаємо функцію порівняння та зберігаємо результат (True або False) у змінну
+secret_box = equality_check(numbers, numbers2)
+
+# Передаємо отриманий результат у функцію для друку повідомлення користувачу
+check(secret_box)
