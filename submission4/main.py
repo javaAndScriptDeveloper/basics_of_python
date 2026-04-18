@@ -12,3 +12,21 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+
+# 8) Реалізувати функцію для знаходження найбільшого з трьох чисел.
+numbers1 = (3, 17, 5)
+numbers2 = (10, 2, 8)
+numbers3 = (42, 15, 38)
+
+def max_numer(numbers) :
+    if numbers[0] > numbers[1] and numbers[0] > numbers[2] :
+        return numbers[0]
+    elif numbers[1] > numbers[2]:
+        return numbers[1]
+    else:
+        return numbers[2]
+
+print(f"Найбільше число серед трьох:", max_numer(numbers1))
+print(f"Найбільше число серед трьох:", max_numer(numbers2))
+print(f"Найбільше число серед трьох:", max_numer(numbers3))
