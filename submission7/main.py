@@ -1,14 +1,33 @@
-# Дані для завдання
+import sys
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
+def main():
+    try:
+        input_data = sys.stdin.read().split()
+        
+        if not input_data:
+            return
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
+        num1 = float(input_data[0])
+        num2 = float(input_data[1])
+        
+        result = num1 / num2
+        
+        if result == int(result):
+            print(int(result))
+        else:
+            print(result)
+        
+    except ZeroDivisionError:
+        print("Помилка: ділення на нуль")
+        
+        with open("error.log", "w", encoding="utf-8") as f:
+            f.write("ZeroDivisionError: division by zero")
+            
+    except (ValueError, IndexError):
+        print("Помилка: некоректні дані")
+        
+    finally:
+        pass
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
-
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
-
-# Реалізуйте завдання тут
+if __name__ == "__main__":
+    main()
