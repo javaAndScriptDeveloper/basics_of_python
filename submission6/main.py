@@ -1,33 +1,52 @@
-# Дані для завдання
 import json
+import os
 
 # Шляхи до файлів
 input_json = "students.json"
 output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
-
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
-
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
 
 # Дані для зміни (варіант 4): змінити факультет студента
 student_to_update = "Іван"
 new_faculty = "КН"
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
-
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
+# Базові дані на випадок, якщо файлу ще не існує (щоб програма не падала)
+default_students = [
+    {"name": "Олена", "age": 20, "faculty": "КН"},
+    {"name": "Іван", "age": 22, "faculty": "ІТ"},
+    {"name": "Марія", "age": 19, "faculty": "КН"}
 ]
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
+# 1. Перевірка та створення вхідного файлу, якщо його немає
+if not os.path.exists(input_json):
+    try:
+        with open(input_json, "w", encoding="utf-8") as file:
+            json.dump(default_students, file, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Помилка при створенні файлу: {e}")
 
-# Реалізуйте завдання тут
+# 2. Основна логіка - Зчитування, зміна та запис у НОВИЙ файл
+try:
+    # Зчитуємо дані з вхідного файлу
+    with open(input_json, "r", encoding="utf-8") as file:
+        students = json.load(file)
+    
+    student_found = False
+    
+    # Шукаємо студента за ім'ям та змінюємо факультет
+    for student in students:
+        if student.get("name") == student_to_update:
+            student["faculty"] = new_faculty
+            student_found = True
+            break
+            
+    if not student_found:
+        print(f"Студента з ім'ям '{student_to_update}' не знайдено у файлі.")
+        
+    # Записуємо оновлені дані у ВИХІДНИЙ файл (output.json), як вимагає тест
+    with open(output_json, "w", encoding="utf-8") as file:
+        json.dump(students, file, ensure_ascii=False, indent=4)
+        
+    print(f"Зміни успішно збережено у файл '{output_json}'!")
+
+except Exception as e:
+    print(f"Виникла помилка: {e}")
