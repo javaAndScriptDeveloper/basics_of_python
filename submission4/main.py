@@ -12,3 +12,9 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def km_to_m(n):
+    return n*1000
+print(km_to_m(1))
+print(km_to_m(5.5))
+print(km_to_m(0.25))
