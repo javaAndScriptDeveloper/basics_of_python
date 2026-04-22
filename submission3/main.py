@@ -19,3 +19,10 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+i = len(numbers) - 1
+numbers_reversed = []
+while(i >= 0):
+    numbers_reversed.append(numbers[i])
+    i-=1
+print(*numbers_reversed)
