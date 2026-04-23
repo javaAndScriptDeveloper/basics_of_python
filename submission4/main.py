@@ -12,12 +12,3 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
-
-
-def c_to_f(degrees: int) -> int:
-    return degrees * 9 / 5 + 32
-
-
-print(c_to_f(0))
-print(c_to_f(100))
-print(c_to_f(37))
