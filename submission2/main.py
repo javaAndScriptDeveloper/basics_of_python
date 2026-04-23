@@ -1,23 +1,23 @@
-# Implement task here
 import sys
 
 def main():
     input_data = sys.stdin.read().split()
+    if not input_data:
+        return
 
-    start = int(input_data[0])
-    end = int(input_data[1])
+    try:
+        n = int(input_data[0])
+        if n < 0:
+            return
 
-    for num in range(start, end+1):
-        if num < 2:
-            continue
+        factorial = 1
+        for i in range(1, n + 1):
+            factorial *= i
 
-        is_prime = True
-        for i in range(2, num):
-            if num % i == 0:
-                is_prime = False
-                break
-        if is_prime:
-            print(num, end=" ")
+        print(factorial)
 
-if __name__ == '__main__':
+    except (ValueError, IndexError):
+        pass
+
+if __name__ == "__main__":
     main()
