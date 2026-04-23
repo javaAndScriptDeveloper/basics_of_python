@@ -19,3 +19,7 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+if value_to_remove in numbers:
+    numbers.remove(value_to_remove)
+
+print(*numbers)
