@@ -20,3 +20,11 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+total = 0
+count = 0
+
+with open(input_file, "r") as input_file:
+    for line in input_file:
+        total += int(line)
+        count += 1
+print(total/count)
