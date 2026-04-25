@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Марія",
+    "age": 20,
+    "group": "CS-101",
+    "email": "maria@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Олег",
+    "age": 21,
+    "group": "CS-102",
+    "email": "oleg@example.com"
+  }
+]
