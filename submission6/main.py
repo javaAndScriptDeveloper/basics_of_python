@@ -31,3 +31,25 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+
+
+filename = "students.json"
+output_filename = "output.json"
+
+try:
+    with open(filename, "r", encoding="utf-8") as file:
+        students = json.load(file)
+    
+    for student in students:
+        print(f"{student['name']}, {student['age']}, {student['faculty']}")
+    
+    new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
+    students.append(new_student)
+    
+    with open(output_filename, "w", encoding="utf-8") as file:
+        json.dump(students, file, ensure_ascii=False, indent=2)
+
+except FileNotFoundError:
+    pass
+except Exception:
+    pass
