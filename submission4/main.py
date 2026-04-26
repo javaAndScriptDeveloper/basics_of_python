@@ -12,3 +12,22 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+
+
+def factorial_iterative(n):
+    """Обчислення факторіала за допомогою циклу (ітераційний підхід)"""
+    if n < 0:
+        return "Помилка: факторіал від'ємного числа не існує"
+    
+    result = 1
+    # Цикл від 2 до n включно
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+# Виклик функції для заданих тестових значень
+test_values = [5, 8]
+
+for val in test_values:
+    print(f"{factorial_iterative(val)}")
