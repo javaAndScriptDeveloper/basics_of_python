@@ -20,3 +20,15 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+
+
+try:
+    with open(input_file, 'r', encoding='utf-8') as infile:
+        content = infile.read()
+        words = content.split()
+        word_count = len(words)
+
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        outfile.write(str(word_count))
+except FileNotFoundError:
+    print("Файл input.txt не знайдено.")
