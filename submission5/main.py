@@ -20,3 +20,16 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+def rewrite_file(input_file, output_file):
+    try:
+        with open(input_file, "r", encoding='utf-8') as infile, \
+            open(output_file, "w", encoding='utf-8') as outfile:
+            for line in infile:
+                trans=line.lower()
+                outfile.write(trans)
+        print(f"Файл {input_file} перезаписано {output_file}")
+    except FileNotFoundError:
+        print(f"Файл {input_file} не знайдено")
+    except Exception as e:
+        print(e)
+rewrite_file(input_file, output_file)
