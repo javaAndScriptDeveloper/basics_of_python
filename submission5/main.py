@@ -20,3 +20,20 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+print("--- Індивідуальне завдання (Варіант 9) ---")
+
+try:
+    # Читаємо всі рядки з вхідного файлу
+    with open(input_file, 'r', encoding='utf-8') as f_in:
+        lines = f_in.readlines()
+
+    # Залишаємо тільки ті рядки, які не є порожніми (strip прибирає пробіли/переноси)
+    non_empty_lines = [line for line in lines if line.strip() != '']
+
+    # Записуємо очищені рядки у вихідний файл
+    with open(output_file, 'w', encoding='utf-8') as f_out:
+        f_out.writelines(non_empty_lines)
+        
+    print("Порожні рядки успішно видалено.")
+except FileNotFoundError:
+    print("Вхідний файл не знайдено.")

@@ -19,3 +19,10 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+print("Індивідуальне завдання (Варіант 9)")
+
+# Об'єднуємо два списки
+combined_list = numbers + numbers2
+
+# Виводимо результат
+print(f"Об'єднаний список: {combined_list}")

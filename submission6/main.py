@@ -31,3 +31,22 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+print("--- Індивідуальне завдання (Варіант 9) ---")
+import csv
+
+data_list = []
+
+try:
+    # Зчитуємо дані з CSV
+    with open(input_csv, "r", encoding="utf-8") as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            data_list.append(row)
+
+    # Записуємо у JSON
+    with open(output_json, "w", encoding="utf-8") as json_file:
+        json.dump(data_list, json_file, ensure_ascii=False, indent=4)
+        
+    print(f"Дані успішно конвертовано з {input_csv} у {output_json}.")
+except Exception as e:
+    print(f"Помилка: {e}")
