@@ -12,3 +12,10 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def perimeter(a,b):
+    p=2*a+2*b
+    return p
+print(perimeter(5,3))
+print(perimeter(10,7))
+print(perimeter(2.5,4))
