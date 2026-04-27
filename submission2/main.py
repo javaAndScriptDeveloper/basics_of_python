@@ -1,1 +1,12 @@
 # Implement task here
+try:
+    a1 = float(input("Введіть перший член прогресії (a1):"))
+    d = float(input("Введіть різницю прогресії (d): "))
+    n = int(input("Введіть кількість членів (n): "))
+    if n<=0:
+        raise ValueError("Кількість членів не може бути від'ємною")
+    for i in range(n):
+        a=a1+i*d
+        print(a)
+except ValueError as e:
+    print(e)
