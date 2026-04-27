@@ -31,3 +31,23 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+def read_info(input_file):
+    try:
+        with open(input_file, "r", encoding="utf-8") as file:
+            sts = json.load(file)
+            print(f"{'Ім’я':<20} | {'Вік':<5} | {'Факультет'}")
+            print("-" * 40)
+            for st in sts:
+                name = st.get("name")
+                age = st.get("age")
+                faculty = st.get("faculty")
+                print(f"{name:<20} | {age:<5} | {faculty}")
+
+    except FileNotFoundError:
+        print(f"Помилка: Файл {input_file} не знайдено.")
+    except json.JSONDecodeError:
+        print("Помилка: Файл має некоректний формат JSON.")
+
+    except Exception as e:
+        print(f"Сталася непередбачена помилка: {e}")
+read_info(input_json)
