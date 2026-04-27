@@ -19,3 +19,8 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+# Об'єднуємо два списки
+combined_list = numbers + numbers2
+
+# Виводимо результат. Тест очікує саме цей список у консолі
+print(combined_list)
