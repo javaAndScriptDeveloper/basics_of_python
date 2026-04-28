@@ -19,3 +19,11 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+def is_value_in_dict(value, dict_object):
+    if value in dict_object.values():
+        return True
+    else:
+        return False
+
+
+print(is_value_in_dict(value_to_find, people))
