@@ -1,6 +1,6 @@
 # Дані для завдання
 import json
-
+import os
 # Шляхи до файлів
 input_json = "students.json"
 output_json = "output.json"
@@ -31,3 +31,22 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+if not os.path.exists(input_json):
+    print(f"Помилка: Файл {input_json} не знайдено.")
+else:
+    with open(input_json, "r", encoding="utf-8") as f:
+        students = json.load(f)
+        
+    updated = False
+    for student in students:
+        if student.get("name") == student_to_update:
+            student["faculty"] = new_faculty
+            updated = True
+            break
+            
+    if updated:
+        with open(output_json, "w", encoding="utf-8") as f:
+            json.dump(students, f, ensure_ascii=False, indent=2)
+        print(f"Дані студента '{student_to_update}' успішно оновлено. Збережено у '{output_json}'.")
+    else:
+        print(f"Студента з ім'ям '{student_to_update}' не знайдено.")
