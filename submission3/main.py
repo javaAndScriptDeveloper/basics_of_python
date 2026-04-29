@@ -19,3 +19,7 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+print("Початковий список: ", numbers)
+print("У зворотньому напрямку:")
+for i in range(len(numbers) - 1, -1, -1):
+    print(numbers[i])
