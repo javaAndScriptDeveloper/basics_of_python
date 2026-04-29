@@ -12,3 +12,12 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def km_to_meters(km):
+    """Переводить кілометри у метри"""
+    return km * 1000
+
+test_values = [1, 5.5, 0.25]
+
+for val in test_values:
+    print(f"{val} km = {km_to_meters(val)} m")
