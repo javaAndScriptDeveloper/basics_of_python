@@ -1,5 +1,5 @@
 # Дані для завдання
-
+import os
 # Шлях до вхідного файлу
 input_file = "input.txt"
 
@@ -20,3 +20,15 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+if not os.path.exists(input_file):
+    print(f"Помилка: Вхідний файл {input_file} не знайдено.")
+else:
+    with open(input_file, "r", encoding="utf-8") as infile:
+        lines = infile.readlines()
+
+    reversed_lines = lines[::-1]
+    
+    with open(output_file, "w", encoding="utf-8") as outfile:
+        outfile.writelines(reversed_lines)
+        
+    print(f"Дані записано у зворотному порядку у файл {output_file}.")
