@@ -17,7 +17,10 @@ def km_to_meters(km):
     """Переводить кілометри у метри"""
     return km * 1000
 
-test_values = [1, 5.5, 0.25]
+def main():
+    test_values = [1, 5.5, 0.25]
+    for val in test_values:
+        print(f"{val} km = {km_to_meters(val)} m")
 
-for val in test_values:
-    print(f"{val} km = {km_to_meters(val)} m")
+if __name__ == "__main__":
+    main()
