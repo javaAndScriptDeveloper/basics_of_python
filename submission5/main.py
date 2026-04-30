@@ -20,3 +20,12 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+with open(input_file, 'r', encoding='utf-8') as infile:
+    lines = infile.readlines()
+
+reversed_lines = lines[::-1]
+
+with open(output_file, 'w', encoding='utf-8') as outfile:
+    outfile.writelines(reversed_lines)
+
+print("Дані записано у зворотному порядку в файл output.txt")
