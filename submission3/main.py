@@ -19,10 +19,3 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
-print("Початковий словник:", people)
-
-if len(products_prices) > 0:
-    min_value = min(people.values())
-    print("Найменше значення у словнику:", min_value)
-else:
-    print("Словник порожній.")
