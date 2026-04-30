@@ -1,5 +1,5 @@
 # Дані для завдання
-
+import os
 # Шлях до вхідного файлу
 input_file = "input.txt"
 
