@@ -12,3 +12,8 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+def hours_to_minutes(hours):
+    return hours * 60
+print(hours_to_minutes(2))
+print(hours_to_minutes(5.5))
+print(hours_to_minutes(0.25))
