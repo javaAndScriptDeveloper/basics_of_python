@@ -31,3 +31,15 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+def main():
+    try:
+        with open(input_json, "r", encoding="utf-8") as file:
+            students = json.load(file)
+        updated_students = [student for student in students if student.get("name") != student_to_delete]
+        with open(output_json, "w", encoding="utf-8") as file:
+            json.dump(updated_students, file, ensure_ascii=False, indent=2)
+        print(f"Студента {student_to_delete} видалено. Результат збережено у {output_json}.")
+    except FileNotFoundError:
+        print(f"Помилка: Файл {input_json} не знайдено")
+if __name__ == "__main__":
+    main()
