@@ -20,3 +20,18 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+def main():
+    if not os.path.exists(input_file):
+        print("Вхідний файл не існує!")
+        return
+    with open(input_file, 'r', encoding='utf-8') as infile:
+        text = infile.read()
+    if word_to_find in text:
+        result = f"Слово '{word_to_find}' знайдено у файлі."
+    else:
+        result = f"Слово '{word_to_find}' відсутнє у файлі."
+    print(result)
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        outfile.write(result + "\n")
+if __name__ == "__main__":
+    main()
