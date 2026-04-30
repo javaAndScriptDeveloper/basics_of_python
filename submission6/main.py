@@ -31,3 +31,12 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+with open(input_json, "r", encoding="utf-8") as file:
+    data = json.load(file)
+
+for student in data:
+    if student["name"] == student_to_update:
+        student["faculty"] = new_faculty
+
+with open(output_json, "w", encoding="utf-8") as file:
+    json.dump(data, file, ensure_ascii=False, indent=4)
