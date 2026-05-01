@@ -12,3 +12,10 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def inches_to_cm(inches):
+    return inches * 2.54
+
+print(inches_to_cm(1))   # 2.54
+print(inches_to_cm(10))  # 25.4
+print(inches_to_cm(5))   # 12.7
