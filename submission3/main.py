@@ -19,9 +19,10 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
-list1 = [1, 2, 3, 4, 5]
-list2 = [6, 7, 8, 9, 10]
 
-merged_list = list1 + list2
+numbers = [12, 7, 45, 3, 28, 15, 9, 33, 21]
+numbers2 = [50, 60, 70]
+
+merged_list = numbers + numbers2
 
 print(merged_list)
