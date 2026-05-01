@@ -20,3 +20,15 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+
+try:
+    with open(input_file, 'r', encoding='utf-8') as f_in:
+        lines = f_in.readlines()
+
+    # Залишаємо лише ті рядки, які після видалення пробілів не порожні
+    non_empty_lines = [line for line in lines if line.strip()]
+
+    with open(output_file, 'w', encoding='utf-8') as f_out:
+        f_out.writelines(non_empty_lines)
+except Exception:
+    pass
