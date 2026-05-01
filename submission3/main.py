@@ -19,3 +19,10 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+numbers = [12, 7, 45, 3, 28, 15, 9, 33, 21]
+numbers2 = [50, 60, 70]
+
+merged_list = numbers + numbers2
+
+print(merged_list)
