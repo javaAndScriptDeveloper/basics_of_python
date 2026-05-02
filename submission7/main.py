@@ -1,15 +1,9 @@
+import logging
+
 # Дані для завдання
-
-# Словник для перевірки (варіант 6)
 data = {"name": "Олена", "age": 20, "faculty": "КН"}
-
-# Файл для запису помилок (варіант 8)
 error_file = "error.log"
-
-# Файл для зчитування (варіанти 5, 9)
 input_file = "input.txt"
-
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
 
 # Реалізуйте завдання тут
 logging.basicConfig(filename=error_file, level=logging.ERROR)
@@ -31,7 +25,7 @@ try:
         name = parts[0]
         age_str = parts[1]
         
-        # Перевіряємо, чи вік є числом 
+        # Перевіряємо, чи вік є числом (якщо там букви - викличеться ValueError)
         age = int(age_str) 
         
         valid_names.append(name)
