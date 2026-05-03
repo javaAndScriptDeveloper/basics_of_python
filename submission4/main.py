@@ -12,3 +12,14 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+
+# 6 варіант
+def calculate_average(numbers_list: list):
+    elements_sum = sum(numbers_list)
+    elements_amount = len(numbers_list)
+    average = elements_sum / elements_amount
+    return average
+
+print(calculate_average([15, 25, 35]))
+print(calculate_average([100, 200, 300]))
