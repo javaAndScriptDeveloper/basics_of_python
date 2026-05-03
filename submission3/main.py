@@ -1,16 +1,8 @@
 def main():
-    try:
-        list1 = input().split()
-        list2 = input().split()
-
-        combined_list = list1 + list2
-
-        print(combined_list)
-
-    except EOFError:
-        print("Помилка: Недостатньо даних для вводу")
-    except Exception as e:
-        print(f"Сталася неочікувана помилка: {e}")
+    list1 = [12, 7, 45, 3, 28, 15]
+    list2 = [9, 33, 21, 50, 60, 70]
+    combined_list = list1 + list2
+    print(*combined_list)
 
 if __name__ == "__main__":
     main()
