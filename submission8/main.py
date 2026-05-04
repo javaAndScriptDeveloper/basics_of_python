@@ -13,18 +13,13 @@ class CalendarRecord:
     def __str__(self):
         return f"📅 {self.date} о {self.time} | {self.title}"
 
-
 def main():
-    record1 = CalendarRecord("Лекція з Баз Даних", "2026-05-15", "10:00")
-    record2 = CalendarRecord("Зустріч по проекту", "2026-05-16", "14:30")
-    print("--- Початкові записи в календарі ---")
-    print(record1)
-    print(record2)
-    print("\n--- Відбулися зміни у розкладі ---")
-    record1.edit(new_time="12:00", new_title="Лекція з Баз Даних (Перенесено)")
-    print("\n--- Оновлені записи в календарі ---")
-    print(record1)
-    print(record2)
+    record = CalendarRecord("Конференція", "20.03.2026", "10:00")
+    print("--- Початковий запис ---")
+    print(record)
+    record.edit(new_time="14:00")
+    print("\n--- Після редагування ---")
+    print(record)
 
 if __name__ == "__main__":
     main()
