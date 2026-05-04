@@ -1,22 +1,25 @@
-# Дані для завдання
+import os
 
-# Шлях до вхідного файлу
-input_file = "input.txt"
+def main():
+    input_filename = "input.txt"
+    output_filename = "output.txt"
 
-# Шлях до вихідного файлу
-output_file = "output.txt"
+    if not os.path.exists(input_filename):
+        with open(input_filename, "w", encoding="utf-8") as f:
+            f.write("Перший рядок\n\nДругий рядок\n\n\nТретій рядок\n")
+            
+    try:
+        with open(input_filename, "r", encoding="utf-8") as infile:
+            lines = infile.readlines()
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+        non_empty_lines = [line for line in lines if line.strip() != ""]
+        with open(output_filename, "w", encoding="utf-8") as outfile:
+            outfile.writelines(non_empty_lines)
+            
+        print("Успіх: Порожні рядки видалено!")
+        
+    except Exception as e:
+        print(f"Сталася помилка при роботі з файлами: {e}")
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
-
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
-
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
-
-# Реалізуйте завдання тут
+if __name__ == "__main__":
+    main()
