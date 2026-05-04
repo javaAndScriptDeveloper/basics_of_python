@@ -1,33 +1,33 @@
-# Дані для завдання
+import csv
 import json
+import os
 
-# Шляхи до файлів
-input_json = "students.json"
-output_json = "output.json"
+
 input_csv = "students.csv"
-input_json2 = "students2.json"
+output_json = "output.json"
 
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
+def main():
 
-# Ім'я для пошуку (варіант 3)
-search_name = "Марія"
+    if not os.path.exists(input_csv):
+        with open(input_csv, mode="w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["name", "age", "faculty"])
+            writer.writerow(["Олександр", "20", "ФІОТ"])
+            writer.writerow(["Марія", "21", "КН"])
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+    try:
+        data = []
+        with open(input_csv, mode="r", encoding="utf-8") as csvf:
+            reader = csv.DictReader(csvf)
+            for row in reader:
+                data.append(row)
+        with open(output_json, mode="w", encoding="utf-8") as jsonf:
+            json.dump(data, jsonf, ensure_ascii=False, indent=2)
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
+        print(f"Успіх: Дані з {input_csv} успішно конвертовано та збережено у {output_json}!")
 
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
+    except Exception as e:
+        print(f"Сталася неочікувана помилка: {e}")
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
-
-# Реалізуйте завдання тут
+if __name__ == "__main__":
+    main()
