@@ -1,14 +1,12 @@
-# Дані для завдання
+try:
+    user_str_list = input("Введіть список чисел через пробіл ").split()
+    user_num_list = [int(i) for i in user_str_list]
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
+    if not user_num_list:
+        raise ValueError("Список порожній")
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
+except ValueError as e:
+    print(e)
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
-
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
-
-# Реалізуйте завдання тут
+else:
+    print(user_num_list)
