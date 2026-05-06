@@ -12,3 +12,12 @@ input_file = "input.txt"
 # Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
 
 # Реалізуйте завдання тут
+try:
+    x = input().strip()
+except EOFError:
+    x = ""
+
+if not x:
+    print("Порожній список")
+else:
+    print(x)
