@@ -13,11 +13,12 @@ input_file = "input.txt"
 
 # Реалізуйте завдання тут
 try:
-    x = input().strip()
+    raw = input().strip()
 except EOFError:
-    x = ""
+    raw = ""
 
-if not x:
+if not raw:
     print("Порожній список")
 else:
+    x = [int(i) for i in raw.split()]
     print(x)
