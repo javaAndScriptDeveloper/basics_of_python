@@ -19,3 +19,5 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+numbers.remove(value_to_remove)  # Видаляємо значення зі списку
+print(numbers)
