@@ -1,5 +1,6 @@
 # Дані для завдання
 import json
+import pandas as pd
 
 # Шляхи до файлів
 input_json = "students.json"
@@ -31,3 +32,8 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+with open(input_json, 'r', encoding='utf-8') as json_data:
+    data = json.load(json_data)
+    for i in data:
+        if i["name"] == search_name:
+            print(f'{i["name"]}, {i["age"]}, {i["faculty"]}')
