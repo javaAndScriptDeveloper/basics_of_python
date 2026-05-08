@@ -31,3 +31,27 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+def main():
+    students = load_students_from_json(input_json)
+    sorted_students = sort_students_by_age(students)
+    save_students_to_json(sorted_students, output_json)
+
+
+def load_students_from_json(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        students = json.load(f)
+    return students
+
+
+def sort_students_by_age(students):
+    return sorted(students, key=lambda x: x['age'])
+
+
+def save_students_to_json(students, file_path):
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(students, f, ensure_ascii=False, indent=2)
+
+
+if __name__ == "__main__":
+    main()
+    
