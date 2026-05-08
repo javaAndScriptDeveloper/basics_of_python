@@ -12,3 +12,13 @@ input_file = "input.txt"
 # Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
 
 # Реалізуйте завдання тут
+try:
+    raw = input().strip()
+except EOFError:
+    raw = ""
+
+if not raw:
+    print("Порожній список")
+else:
+    x = [int(i) for i in raw.split()]
+    print(x)

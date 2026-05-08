@@ -1,3 +1,4 @@
-# Лабораторна робота 9: Регулярні вирази
+import re
 
-# Реалізуйте завдання тут
+string = input("Enter a string: ")
+print(re.sub(r'\s+', ' ', string))
