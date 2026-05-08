@@ -19,3 +19,13 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+unique_numbers = []
+seen = set()
+
+for num in numbers_with_duplicates:
+    if num not in seen:
+        unique_numbers.append(num)
+        seen.add(num)
+
+print("Original list:", numbers_with_duplicates)
+print("List without duplicates:", unique_numbers)
