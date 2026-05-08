@@ -1,3 +1,5 @@
+import os
+
 # Дані для завдання
 
 # Шлях до вхідного файлу
@@ -20,3 +22,13 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+
+# Check if input file exists
+if not os.path.exists(input_file):
+    print(f"Error: Input file '{input_file}' does not exist.")
+else:
+    # For variant 10: overwrite the input file with new content
+    with open(input_file, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+
+    print(f"File processed successfully. Input file '{input_file}' has been overwritten.")
