@@ -12,3 +12,15 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+def count_vowels(text):
+    """Count the number of vowels in a string."""
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in text if char in vowels)
+
+# Test cases for variant 10
+test_cases = ["hello world", "education", "beautiful day"]
+
+for test in test_cases:
+    result = count_vowels(test)
+    print(f"count_vowels('{test}') = {result}")
