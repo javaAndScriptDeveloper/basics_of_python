@@ -31,3 +31,31 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+
+def compare_json_files(file1, file2):
+    """Compare two JSON files and output differences."""
+    try:
+        with open(file1, 'r', encoding='utf-8') as f:
+            data1 = json.load(f)
+        with open(file2, 'r', encoding='utf-8') as f:
+            data2 = json.load(f)
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return
+
+    # Extract names from both files
+    names1 = {student["name"] for student in data1}
+    names2 = {student["name"] for student in data2}
+
+    # Find differences
+    added = names2 - names1  # in file2 but not in file1
+    removed = names1 - names2  # in file1 but not in file2
+    common = names1 & names2
+
+    # Output differences
+    differences = list(added | removed)
+    if differences:
+        print("|".join(sorted(differences)))
+
+# Run comparison
+compare_json_files(input_json, input_json2)
