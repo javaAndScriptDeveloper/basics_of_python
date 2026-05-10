@@ -19,3 +19,25 @@ value_to_remove = 45
 value_to_find = 30
 
 # Реалізуйте завдання тут
+
+# --- ЗАГАЛЬНЕ ЗАВДАННЯ ---
+# 1. Об'єднання numbers та numbers2
+# sum_numbers = numbers + numbers2
+# print(sum_numbers)
+
+# # 2. Видалення value_to_remove зі списку numbers
+# if value_to_remove in numbers:
+#     numbers.remove(value_to_remove)
+#     print(numbers)
+
+# # 3. Знайти вік для value_to_find у словнику people
+# for name, age in people.items():
+#     if age == value_to_find:
+#         print(f"{name}, {age}")
+
+
+# # ІНДИВІДУАЛЬНЕ ЗАВДАННЯ (Варіант 4)
+# # Вивести елементи списку у зворотному порядку
+print(list(reversed(numbers)))
+print(list(reversed(numbers2)))
+print(list(reversed(numbers_with_duplicates)))
