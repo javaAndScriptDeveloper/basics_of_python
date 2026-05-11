@@ -1,14 +1,36 @@
-# Дані для завдання
+import sys
+import datetime
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
+def log_to_file(error_message):
+    #Записує помилку у файл error.log з міткою часу
+    with open("error.log", "a", encoding="utf-8") as f:
+        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        f.write(f"[{now}] {error_message}\n")
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
 
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
+try:
+    print("Введіть список чисел через пробіл:")
+    data = sys.stdin.read().strip()
+    items = data.split()
 
-# Реалізуйте завдання тут
+    if not items:
+        raise ValueError("Список порожній")
+
+    numbers = [float(x) for x in items]
+    print(f"Ваш список чисел: {numbers}")
+
+except ValueError as e:
+    # Обробка порожнього списку або некоректних символів
+    msg = f"Помилка введення: {e}"
+    print(msg)
+    log_to_file(msg)
+
+except Exception as e:
+    # Обробка інших непередбачуваних помилок
+    msg = f"Критична помилка: {e}"
+    print(msg)
+    log_to_file(msg)
+
+finally:
+    print("Виконання операції завершено.")
