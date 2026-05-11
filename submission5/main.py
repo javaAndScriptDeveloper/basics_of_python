@@ -23,28 +23,29 @@ new_content = "Файл перезаписано"
 
 import os
 
-if not os.path.exists(input_file):
-    print(f"Файл {input_file} не знайдено.")
+#Перевіряю 2 можливих назви, адже Локальна перевірка та Git не співпадають
+if os.path.exists('input.txt.txt'):
+    input_filename = 'input.txt.txt'
+elif os.path.exists('input.txt'):
+    input_filename = 'input.txt'
 else:
-    # Відкриваємо файл для читання
-    with open(input_file, 'r', encoding='utf-8') as infile:
-        data = infile.read().split()
+    input_filename = None
 
-    numbers = []
-    for item in data:
-        try:
-            numbers.append(float(item))
-        except ValueError:
-            continue
+if input_filename is None:
+    print("Error: Input file not found (checked input.txt and input.txt.txt)")
+else:
+    try:
+        with open(input_filename, 'r', encoding='utf-8') as f:
+            data = f.read().split()
 
-    if not numbers:
-        print("У файлі не знайдено числових даних для обчислення.")
-    else:
-        average = sum(numbers) / len(numbers)
+        numbers = [float(x) for x in data]
 
-        # Записуємо результат у вихідний файл
-        with open(output_file, 'w', encoding='utf-8') as outfile:
-            outfile.write(str(average))
+        if numbers:
+            average = sum(numbers) / len(numbers)
 
-        print(average)
+            with open('output.txt', 'w', encoding='utf-8') as out:
+                out.write(str(average))
 
+            print(average)
+    except Exception as e:
+        print(f"Error: {e}")
