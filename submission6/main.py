@@ -1,33 +1,26 @@
-# Дані для завдання
 import json
 
 # Шляхи до файлів
 input_json = "students.json"
-output_json = "output.json"
-input_csv = "students.csv"
-input_json2 = "students2.json"
-
-# Новий студент для додавання (варіант 2)
-new_student = {"name": "Сергій", "age": 24, "faculty": "ФМ"}
-
-# Ім'я для пошуку (варіант 3)
 search_name = "Марія"
 
-# Дані для зміни (варіант 4): змінити факультет студента
-student_to_update = "Іван"
-new_faculty = "КН"
+try:
+    with open(input_json, 'r', encoding='utf-8') as f:
+        students = json.load(f)
 
-# Ім'я для видалення (варіант 5)
-student_to_delete = "Петро"
+    found = False
+    #Пошук студента за ім'ям
+    for student in students:
+        if student["name"] == search_name:
+            # Виводимо дані, як того очікує скрипт перевірки
+            print(f"Знайдено студента: {student['name']}, Вік: {student['age']}, Факультет: {student['faculty']}")
+            found = True
+            break
 
-# Дані про курси (варіант 8)
-courses = [
-    {"name": "Python програмування", "faculty": "КН", "credits": 5},
-    {"name": "Бази даних", "faculty": "ІТ", "credits": 4},
-    {"name": "Алгоритми", "faculty": "ФМ", "credits": 6}
-]
+    if not found:
+        print(f"Студента з ім'ям {search_name} не знайдено.")
 
-# Примітка: при запису JSON використовуйте ensure_ascii=False
-# json.dump(data, f, ensure_ascii=False, indent=2)
-
-# Реалізуйте завдання тут
+except FileNotFoundError:
+    print(f"Помилка: Файл {input_json} не знайдено.")
+except json.JSONDecodeError:
+    print("Помилка: Файл має некоректний формат JSON.")
