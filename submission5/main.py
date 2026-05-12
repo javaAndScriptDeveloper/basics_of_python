@@ -20,3 +20,17 @@ new_line = "Новий рядок додано"
 new_content = "Файл перезаписано"
 
 # Реалізуйте завдання тут
+# ІНДИВІДУАЛЬНЕ ЗАВДАННЯ (Варіант 4)
+# 1. Відкриваємо вхідний файл та зчитуємо всі рядки без символів \n
+with open(input_file, 'r', encoding='utf-8') as file_in:
+    lines = file_in.read().splitlines()
+
+# 2. Перевертаємо список чистих рядків
+reversed_lines = lines[::-1]
+
+# 3. Відкриваємо вихідний файл і записуємо їх
+with open(output_file, 'w', encoding='utf-8') as file_out:
+    for line in reversed_lines:
+        file_out.write(line + '\n')
+
+print(f"Дані успішно записано у файл {output_file} у зворотному порядку!")
