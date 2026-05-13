@@ -31,3 +31,21 @@ courses = [
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Реалізуйте завдання тут
+# ІНДИВІДУАЛЬНЕ ЗАВДАННЯ (Варіант 4)
+
+# 1. Зчитуємо дані з вхідного JSON-файлу
+with open(input_json, 'r', encoding='utf-8') as file_in:
+    students_data = json.load(file_in)
+
+# 2. Шукаємо потрібного студента та змінюємо його факультет
+for student in students_data:
+    if student.get("name") == student_to_update:
+        student["faculty"] = new_faculty
+        print(f"Факультет студента {student_to_update} успішно змінено на {new_faculty}!")
+        break
+
+# 3. Записуємо оновлені дані у вихідний JSON-файл
+with open(output_json, 'w', encoding='utf-8') as file_out:
+    json.dump(students_data, file_out, ensure_ascii=False, indent=2)
+
+print(f"Оновлені дані збережено у файл {output_json}.")
