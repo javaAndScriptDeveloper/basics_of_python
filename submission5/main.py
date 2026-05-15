@@ -19,4 +19,12 @@ new_line = "Новий рядок додано"
 # Новий вміст для перезапису (варіант 10)
 new_content = "Файл перезаписано"
 
-# Реалізуйте завдання тут
+# Зчитуємо числа з файлу
+with open(input_file, "r") as f:
+    numbers = [float(line.strip()) for line in f if line.strip()]
+
+# Обчислюємо середнє значення
+average = sum(numbers) / len(numbers)
+
+# Виводимо результат
+print(average)
