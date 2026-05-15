@@ -6,6 +6,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x verify.sh variant.txt
+RUN sed -i 's/\r//' verify.sh && chmod +x verify.sh variant.txt
 
 ENTRYPOINT ["/bin/bash", "./verify.sh"]
