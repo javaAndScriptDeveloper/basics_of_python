@@ -30,4 +30,19 @@ courses = [
 # Примітка: при запису JSON використовуйте ensure_ascii=False
 # json.dump(data, f, ensure_ascii=False, indent=2)
 
-# Реалізуйте завдання тут
+# Зчитуємо список студентів з JSON-файлу
+with open(input_json, encoding="utf-8") as f:
+    students = json.load(f)
+
+# Шукаємо студента за іменем
+found = None
+for student in students:
+    if student["name"] == search_name:
+        found = student
+        break
+
+# Виводимо дані знайденого студента
+if found:
+    print(f"Знайдено: {found['name']}, вік: {found['age']}, факультет: {found['faculty']}")
+else:
+    print(f"Студента з іменем '{search_name}' не знайдено")
