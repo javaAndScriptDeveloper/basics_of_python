@@ -12,3 +12,12 @@
 # 8) Найбільше з трьох: (3, 17, 5), (10, 2, 8), (42, 15, 38)
 # 9) Дюйми → сантиметри: 1, 10, 5
 # 10) Кількість голосних: "hello world", "education", "beautiful day"
+
+# Функція переведення температури з Цельсія у Фаренгейти
+def celsius_to_fahrenheit(celsius):
+    return celsius * 9 / 5 + 32
+
+# Викликаємо функцію для кількох значень і виводимо результати
+print(celsius_to_fahrenheit(0))    # 0°C → 32°F
+print(celsius_to_fahrenheit(100))  # 100°C → 212°F
+print(celsius_to_fahrenheit(37))   # 37°C → 98.6°F
