@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 VARIANT_FILE="variant.txt"
 
